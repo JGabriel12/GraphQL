@@ -6,5 +6,9 @@ export const context = () => {
       const url = 'http://localhost:3000/users';
       return fetch(url + path);
     },
+    getPosts: (path = '/') => {
+      const url = 'http://localhost:3000/posts';
+      return fetch(url + path);
+    },
   };
 };

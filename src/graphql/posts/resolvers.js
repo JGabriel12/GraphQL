@@ -1,26 +1,16 @@
-const users = async () => {
-  return [
-    {
-      id: 'sswmdiwneqsldkqiwdn',
-      userName: 'Gabriel',
-    },
-    {
-      id: 'pwrpqoweolaç',
-      userName: 'Maria',
-    },
-  ];
+const posts = async (_, __, { getPosts }) => {
+  const response = await getPosts();
+  return response.json();
 };
 
-const user = async () => {
-  return {
-    id: 'sswmdiwneqsldkqiwdn',
-    userName: 'Gabriel',
-  };
+const post = async (_, { id }, { getPosts }) => {
+  const response = await getPosts('/' + id);
+  return response.json();
 };
 
-export const userResolvers = {
+export const postResolvers = {
   Query: {
-    user,
-    users,
+    posts,
+    post,
   },
 };
